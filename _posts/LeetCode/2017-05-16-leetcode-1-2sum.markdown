@@ -136,9 +136,36 @@ public class Solution {
 }
 ```
 
+map中存直接value的版本
+```java
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        int[] results = new int[]{-1, -1};
+        
+        if(nums == null || nums.length < 2){
+            return results;
+        }
+        
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        
+        for(int i = 0; i < nums.length; i++){
+            if(map.containsKey(target - nums[i])){
+                results[0] = map.get(target - nums[i]);
+                results[1] = i;
+                return results;
+            }
+            map.put(nums[i], i);
+        }
+        
+        return results;
+    }
+}
+```
+
 ### 笔记
 
 基本是5分钟一遍通过，主要就是三个关键点：
 (1) HashMap
 (2) 在循环的过程中动态构建，这样就不会出现同一个元素使用两次的情况。
-(3) 存的key是值，value是index，并且存在HashMap中的key是(target - nums[i])。
+(3) 存的key是值，value是index，并且存在HashMap中的key是(target - nums[i])后者是(nums[i])都是可以的，只要最后和check的时候对应起来就可以。
