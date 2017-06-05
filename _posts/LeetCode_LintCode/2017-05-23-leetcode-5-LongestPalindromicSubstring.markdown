@@ -70,12 +70,20 @@ public class Solution {
             return null;
         }
 
-    private int startIndex = -1;
-    private int longestPalindromeLen = 0;
+        int startIndex = -1;
+        int longestPalindromeLen = 0;
 
-        int[][] dp = new int[s.length()][s.length()];
+        boolean[][] dp = new int[s.length()][s.length()];
 
-        for
+        //i is the length of the string
+        for(int i = 0; i < s.length(); i++){
+            //j is the start index of the string
+            for(int j = 0; j < s.length - i; j++){
+                if(i == 0){
+                    dp[i][i + j] = true;
+                }
+            }
+        }
     }
 }
 ```
