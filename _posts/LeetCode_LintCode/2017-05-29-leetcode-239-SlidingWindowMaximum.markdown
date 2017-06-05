@@ -129,8 +129,8 @@ public class Solution {
 (3)另外需要注意的一点是，PriorityQueue在默认情况下是minHeap，而我们这里需要用的是maxHeap，所以在实例化的时候需要指明。一开始以为必须给一个comparator，但其实可以给一个**Collections.reverseOrder()**作为参数，就能够达到maxHeap的效果。
 
 (4)dequeue的版本代码不多，但是非常巧妙，理解起来还是需要一些时间，具体的参考见：
-[https://discuss.leetcode.com/topic/19055/java-o-n-solution-using-deque-with-explanation]
-[http://www.programcreek.com/2014/05/leetcode-sliding-window-maximum-java/]
+<https://discuss.leetcode.com/topic/19055/java-o-n-solution-using-deque-with-explanation>
+<http://www.programcreek.com/2014/05/leetcode-sliding-window-maximum-java/>
 
 **其思想和Largest Rectangle in Histogram中利用stack很像，都是利用维持一个有序的数据结构，存储所有有效的信息，不会有任何的冗余信息来增加负担**
 
