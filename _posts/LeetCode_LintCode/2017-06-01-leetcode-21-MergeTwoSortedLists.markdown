@@ -99,16 +99,23 @@ public class Solution {
             }
         }
         
-        while(l1 != null){
+        //使用while多余了，直接把剩下的接在后面就可以
+        //while(l1 != null){
+        //    head.next = l1;
+        //    l1 = l1.next;
+        //    head = head.next;
+        //}
+        if(l1 != null){
             head.next = l1;
-            l1 = l1.next;
-            head = head.next;
         }
-        
-        while(l2 != null){
+
+        //while(l2 != null){
+        //    head.next = l2;
+        //    l2 = l2.next;
+        //    head = head.next;
+        //}
+        if(l2 != null){
             head.next = l2;
-            l2 = l2.next;
-            head = head.next;
         }
         
         return dummy.next;

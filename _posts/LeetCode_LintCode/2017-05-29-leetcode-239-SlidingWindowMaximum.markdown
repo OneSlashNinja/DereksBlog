@@ -92,7 +92,7 @@ public class Solution {
             
             //先比较是否已经超出了window
             //这里比较的是index，是看index是否已超出范围
-            while(!deque.isEmpty() && deque.peek() < i - k + 1){ //i所在的位置可以看成是window的右端, 所以window左端的坐标就是i - k + 1
+            if(!deque.isEmpty() && deque.peek() < i - k + 1){ //i所在的位置可以看成是window的右端, 所以window左端的坐标就是i - k + 1
                 //注意这里是从头poll
                 deque.poll();
             }

@@ -199,3 +199,62 @@ public class Solution {
 如果没有触底，那么就进行分治，对于二叉树也就是对左子树和右子树继续进行recursion。
 当手机到了来自左子树和右子树的结果后，分情况进行返回。
 根据左子树和右子树返回来的的结果是否为null有4种组合，只不过有一些四种情况中的两者都为空的情况不写出来也会被涵盖。return root的其实经过前面的if的过滤也可以不需要if的判断。
+
+---
+
+## 三刷
+
+### 代码
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        
+        if(root == null){
+            return null;
+        }
+        
+        if(root == p || root == q){
+            return root;
+        }
+        
+        TreeNode leftResult = lowestCommonAncestor(root.left, p, q);
+        TreeNode rightResult = lowestCommonAncestor(root.right, p, q);
+        
+        if(leftResult != null && rightResult != null){
+            return root;
+        }
+        
+        if(leftResult != null){
+            return leftResult;
+        }
+        
+        return rightResult;
+        
+    }
+}
+```
+
+这次刷是在写完Lowest Common Ancestor of a Binary **Search** Tree 这道题之后，发现了这题一个特点，就是**完全没有用ListNode中的val值**。
+
+这是因为binary tree中并不像BST中值都是唯一的，所以可能会有很多个和p或者q的val相等的node。那么这种情况下搜索就会混乱。
+
+自己的一次提交中就使用了
+
+```java
+if(root.val == p.val || root.val == q.val){
+    ...
+}
+```
+结果出错
+
+所以是直接把p和q的tree中的node比较，而完全不需要使用val。

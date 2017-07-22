@@ -171,3 +171,5 @@ public class Codec {
 ```
 
 ### 笔记
+
+关键字: Helper, divide and conquer, preorder traverse(or level order with queue)
