@@ -142,3 +142,48 @@ currentList.remove(currentList.size() - 1);
 
 leetcode上有一篇总结的很好的关于backtrack的模板：<https://discuss.leetcode.com/topic/46159/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning>
 
+
+
+## 三刷
+
+### 代码
+
+```java
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        
+        List<List<Integer>> results = new ArrayList<List<Integer>>();
+        
+        if(nums == null || nums.length == 0){
+            return results;
+        }
+        
+        int n = nums.length;
+        
+        for(int i = 0; i < (1 << n); i++){  //这里的 (1 << n)是为了表示数字 2^n
+            List<Integer> currentSub = new ArrayList<Integer>();
+            for(int j = 0; j < n; j++){
+                int mask = ( 1<< j); //这里的 (1 << j)是为了当mask
+                if((i & mask) > 0){ //注意是逻辑&
+                    currentSub.add(nums[j]);
+                }
+            }
+            results.add(currentSub);
+        }
+        
+        return results;
+    }
+}
+```
+
+### 笔记
+
+如果说Backtracking是通用解，那么使用bit manipulation的做法就是这题的特殊解。
+
+使用二进制的bit位正好可以用来对应对于nums数组中的数字到底取不取，然后使用mask配合逻辑&就可以。这样从0~n^2
+
+其中要注意两个地方的 (1 << n) 和 (1 << j)的含义的不一样。前者为了表示2^n, 而后者则是mask
+
+时间复杂度是O(2^n*n) ?
+
+参考[Finding all subsets of a given set in Java](http://www.geeksforgeeks.org/finding-all-subsets-of-a-given-set-in-java/)

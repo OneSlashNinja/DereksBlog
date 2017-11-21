@@ -156,3 +156,54 @@ public class Solution {
 还有这道**Validate Binary Search Tree**
 
 <https://discuss.leetcode.com/topic/46016/learn-one-iterative-inorder-traversal-apply-it-to-multiple-tree-questions-java-solution>
+
+## 三刷
+
+### 代码
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        
+        Stack<TreeNode> stack = new Stack<>();
+        
+        TreeNode prev = null;
+        TreeNode current = root;
+        
+        while(current != null || !stack.isEmpty()){
+            if(current != null){
+                stack.push(current);
+                current = current.left;
+            }else{
+                current = stack.pop();
+                if(prev != null && prev.val >= current.val){
+                    return false;
+                }
+                prev = current;
+                current = current.right;
+            }
+        }
+        
+        return true;
+    }
+}
+```
+
+### 笔记
+
+该题使用divide and conquer固然可以做，但是需要return一个能承载多个信息的类，所以代码量一下就上去了。
+
+就像二刷笔记里提到的，其实完全可以使用binary tree inorder traverse的interate的版本，这样就可以利用BST的性质，如果不是valid bst必然不会是inorder后是一个升序的array。
+
+而因为不是recursion，所以可以维护一个current，一个prev来逐个检测。可以看到，代码量一下就缩减了很多。
+
+具体的binary tree inorder traverse的模板见自己leetcode 94的分析。
