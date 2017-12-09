@@ -154,7 +154,7 @@ class Solution {
         
         //起点是2, 终点是sqrt(n), 每次递增
         for(int i = 2; i * i < n; i++){
-            //如果该数字本身就不是prime，就没必要检查了，肯定会被其他的某个case覆盖
+            //如果该数字本身就不是prime，就没必要检查了，它所能覆盖的情况肯定会被其他的某个case覆盖
             if(isPrime[i]){
                 //注意j的起点是i * i, 每次递增i而不是i
                 for(int j = i * i; j < n; j += i){
