@@ -38,12 +38,19 @@ public class Solution {
 public class Solution {
     public void moveZeroes(int[] nums) {
         
-        for(int i = 0, j = 0; i < nums.length; i++){
-            if(nums[i] != 0){
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                j++;
+        //r是快指针，l是慢指针
+        //可以保证l的左边(注意是左边，l只有在碰到0了之后才能保证指的是0)全部都是非0的数字
+        //l就像一个筛子，0穿不过去，只有非零才能穿过去
+        //在l和r移动的过程中，所有的0就会"堆积"在l和r之间的位置，直到r走完了，所有的0就堆到了最后
+
+        //在遇到第一个0之前，l和r都是一起移动的
+        //从遇到第一个0开始，每次for循环中的if结束后，l所指的就肯定是0，这就构成了当nums[r] != 0时能让r跟l换位置的条件。记得swap后l++，这是慢指针移动的唯一条件。
+        for(int r = 0, l = 0; r < nums.length; r++){
+            if(nums[r] != 0){
+                int temp = nums[r];
+                nums[r] = nums[l];
+                nums[l] = temp;
+                l++;
             }
         }
         

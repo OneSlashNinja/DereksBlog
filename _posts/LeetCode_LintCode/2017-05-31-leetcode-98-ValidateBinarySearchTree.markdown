@@ -183,6 +183,7 @@ class Solution {
             if(current != null){
                 stack.push(current);
                 current = current.left;
+                //这里并不对prev进行操作
             }else{
                 current = stack.pop();
                 if(prev != null && prev.val >= current.val){
