@@ -267,7 +267,7 @@ s----
 
 1. 可以看出dfs和Backtracking的区别，本题属于典型的dfs，可以看到visited并不会在recursion结束的时候reset回false，因为访问过就是访问过，不需要再设置回来了。并且本题还可以用queue来bfs，而Backtracking则不行。
 2. 该题是一个非常好的可以比较dfs和bfs两种写法的题目。可以看到，关键的步骤其实都是一样的，只不过一个是recursion，一个需要借助queue
-3. 对于bfs的版本，更适合声明`int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}};`这样的方向变量，因为没有递归，所以可以直接放在函数内部，而不像dfs必须要放在全局。
+3. 对于bfs的版本，更适合声明二维方向变量，因为没有递归，所以可以直接放在函数内部，而不像dfs必须要放在全局。
 4. 对于这种matrix或者图的搜索的dfs或者bfs，非常适合提取出一个`private boolean isValidBlock(int[][] matrix, int x, int y)`或者`isInBoard`函数来判断是否当前位置是有效位置或者在界内。
 5. 对于dfs的recursion的helper函数，一般只需要**位置**，而不需要**方向**，方向应该是在helper函数内部决定的，然后确定下一个要走的位置，再调用helper函数。所以本题自己一开始的解法把方向也带入到helper函数中就会使得思路比较混乱。
 6. 自己的经验表明，使用(int x, int y)来作为参数表示一个位置比使用start[]要方便和清晰许多，在写程序的时候如果使用start[0]和使用start[1]是非常眼花缭乱的。但是有一种情况例外，就是bfs的时候，对于queue中，坐标必须以一个pair来进行offer或者poll，所以，要么就需要一个额外的"Pair" class，要么就是用int[]类型，感觉上后者更方便，因为省去了声明class，在面试中应该会快不少。

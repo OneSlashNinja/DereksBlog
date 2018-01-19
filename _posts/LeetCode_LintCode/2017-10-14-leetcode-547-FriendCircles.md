@@ -247,3 +247,7 @@ quick union注意find方法(或者说root)是整个数据结构的核心，union
 另外，对于**Graph型的dfs，其的复杂度是O(n + m)**，n代表node的数目，m代表edge的数目。这题中最多所有人都有连接，所以edge的数量最多是n^2，所以整个题目的时间复杂度是O(n^2)(虽然外面还有一层for循环，但是如果所有人都有连接，那么dfs一次就把所有人都连接上了)，空间复杂度是O(n)(使用boolean[] visited)
 
 BFS的版本思路稍微有点不是很直接，就不写了，不过也是visited + queue。
+
+### 链接
+
+[[LeetCode] Friend Circles 朋友圈](http://www.cnblogs.com/grandyang/p/6686983.html)
