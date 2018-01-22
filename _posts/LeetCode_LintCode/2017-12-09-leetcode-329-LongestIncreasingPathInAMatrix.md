@@ -15,7 +15,7 @@ categories: leetcode, Google
 ```java
 class Solution {
     
-    private int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    private int[][] dirs = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
     
     public int longestIncreasingPath(int[][] matrix) {
         if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
@@ -68,7 +68,7 @@ class Solution {
 ```java
 class Solution {
     
-    private int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    private int[][] dirs = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
     
     public int longestIncreasingPath(int[][] matrix) {
         if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
@@ -133,7 +133,7 @@ class Solution {
 ```java
 class Solution {
     
-    private int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    private int[][] dirs = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
     
     public int longestIncreasingPath(int[][] matrix) {
         if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
