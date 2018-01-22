@@ -207,7 +207,7 @@ class Solution {
 public class Solution {
     public boolean hasPath(int[][] maze, int[] start, int[] destination) {
         boolean[][] visited = new boolean[maze.length][maze[0].length];
-        int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}}; //bfs的好处之一是，因为没有递归，这样一个direction变量不需要放在全局了，函数内部就可以
+        int[][] dirs = { {0, 1}, {0, -1}, {-1, 0}, {1, 0} }; //bfs的好处之一是，因为没有递归，这样一个direction变量不需要放在全局了，函数内部就可以
         Queue < int[] > queue = new LinkedList < > ();//才知道int[] 也是可以作为一种类型的?
         queue.add(start);
         visited[start[0]][start[1]] = true;//注意这里和自己版本的区别
